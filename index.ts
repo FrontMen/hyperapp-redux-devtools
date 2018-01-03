@@ -21,7 +21,7 @@ function initReduxDevtools(state: any) {
   return devTools;
 }
 
-export default app => (state, actions, view, root) => {
+export const withReduxDevtools = app => (state, actions, view, root) => {
   const wiredActions = app(
     state,
     {
@@ -62,3 +62,5 @@ export default app => (state, actions, view, root) => {
   wrapActions(wiredActions);
   return wiredActions;
 };
+
+export default withReduxDevtools;
