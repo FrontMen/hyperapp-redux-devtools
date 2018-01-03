@@ -1,8 +1,8 @@
 # @hyperapp/redux-devtools
 
-[![Travis CI](https://img.shields.io/travis/hyperapp/redux-devtools/master.svg)](https://travis-ci.org/hyperapp/redux-devtools)
-[![Codecov](https://img.shields.io/codecov/c/github/hyperapp/redux-devtools/master.svg)](https://codecov.io/gh/hyperapp/redux-devtools)
-[![npm](https://img.shields.io/npm/v/@hyperapp/redux-devtools.svg)](https://www.npmjs.org/package/@hyperapp/redux-devtools)
+[![Travis CI](https://travis-ci.org/FrontMen/hyperapp-redux-devtools.svg?branch=master)](https://travis-ci.org/hyperapp/redux-devtools)
+[![Codecov](https://img.shields.io/codecov/c/github/FrontMen/hyperapp-redux-devtools/master.svg)](https://codecov.io/gh/hyperapp/redux-devtools)
+[![npm](https://img.shields.io/npm/v/@frontmen/hyperapp-redux-devtools.svg)](https://www.npmjs.org/package/@hyperapp/redux-devtools)
 [![Slack](https://hyperappjs.herokuapp.com/badge.svg)](https://hyperappjs.herokuapp.com "Join us")
 
 A [Hyperapp](https://github.com/hyperapp/hyperapp) higher-order `app` that logs state updates to redux devtools.
