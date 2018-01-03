@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest --coverage --no-cache --debug"
+    "test": "jest --coverage --no-cache"
   },
   "keywords": ["hyperapp", "redux", "devtools"],
   "author": "Lasse Capel <lasse@frontmen.nl>",
