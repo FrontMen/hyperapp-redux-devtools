@@ -13,7 +13,11 @@
     "build": "tsc",
     "test": "jest --coverage --no-cache"
   },
-  "keywords": ["hyperapp", "redux", "devtools"],
+  "keywords": [
+    "hyperapp",
+    "redux",
+    "devtools"
+  ],
   "author": "Lasse Capel <lasse@frontmen.nl>",
   "license": "ISC",
   "devDependencies": {
@@ -38,6 +42,13 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
