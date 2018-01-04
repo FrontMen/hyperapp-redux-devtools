@@ -3,18 +3,41 @@
   "version": "0.0.1",
   "description": "higher order app to connect state to redux-devtools",
   "main": "dist/index.js",
+  "jsnext:main": "index.js",
+  "module": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontmen/hyperapp-redux-logger.git"
+  },
   "scripts": {
     "build": "tsc",
-    "prepare": "npm run build",
     "test": "jest --coverage --no-cache"
   },
   "keywords": ["hyperapp", "redux", "devtools"],
   "author": "Lasse Capel <lasse@frontmen.nl>",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^22.0.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^21.2.1",
+    "ts-jest": "^21.2.4",
     "typescript": "^2.6.2"
+  },
+  "babel": {
+    "presets": "env"
   },
   "dependencies": {
     "hyperapp": "^1.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/frontmen/hyperapp-redux-devtools/issues"
+  },
+  "homepage": "https://github.com/frontmen/hyperapp-redux-devtools",
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   }
 }

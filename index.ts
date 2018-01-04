@@ -21,12 +21,12 @@ function initReduxDevtools(state: any) {
   return devTools;
 }
 
-export const withDevTools = app => (state, actions, view, root) => {
+export const withReduxDevtools = app => (state, actions, view, root) => {
   const wiredActions = app(
     state,
     {
       ...actions,
-      devToolsGetState: _ => state => state,
+      reduxDevToolsGetState: _ => state => state,
     },
     view,
     root
@@ -43,16 +43,16 @@ export const withDevTools = app => (state, actions, view, root) => {
         wrapActions(actions[actionName], namespace + actionName);
       } else {
         actions[actionName] = data => {
-          var res = originalAction(data);
-          if (actionName !== 'devToolsGetState') {
+          var result = originalAction(data);
+          if (actionName !== 'reduxDevToolsGetState') {
             sendToReduxDevtools(
               namespace + actionName,
               data,
-              wiredActions.devToolsGetState()
+              wiredActions.reduxDevToolsGetState()
             );
           }
 
-          return res;
+          return result;
         };
       }
     });
@@ -62,3 +62,5 @@ export const withDevTools = app => (state, actions, view, root) => {
   wrapActions(wiredActions);
   return wiredActions;
 };
+
+export default withReduxDevtools;
