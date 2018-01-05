@@ -1,4 +1,4 @@
-import { VNode } from 'hyperapp';
+import { VNode, ActionsType } from 'hyperapp';
 import { HyperappReduxDevtools as HRD } from './hyperapp-redux-devtools-types';
 
 /**
@@ -43,9 +43,7 @@ function initReduxDevtools(state: HRD.StateContent) {
  * @param {HRD.App} app 
  * @returns {HRD.Map<WiredAction>} returns all wired actions
  */
-export const withReduxDevtools = <State extends HRD.StateContent>(
-  app: HRD.App
-) => (
+export const withReduxDevtools = <State extends HRD.StateContent>(app: any) => (
   state: HRD.Map<State>,
   actions: HRD.UnwiredActions,
   view: VNode<HRD.Map<HRD.StateContent>>,
