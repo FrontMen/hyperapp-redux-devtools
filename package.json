@@ -1,5 +1,5 @@
 {
-  "name": "hyperapp-redux-devtools",
+  "name": "@frontmen/hyperapp-redux-devtools",
   "version": "0.0.1",
   "description": "higher order app to connect state to redux-devtools",
   "main": "dist/index.js",
