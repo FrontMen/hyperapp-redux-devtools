@@ -1,8 +1,13 @@
-function sendToReduxDevtools(
-  name: string,
-  payload: { [key: string]: any },
-  newState: { [key: string]: any }
-) {
+import { VNode, ActionsType, View } from 'hyperapp';
+
+/**
+ * Function to log to devtools
+ * 
+ * @param {string} name the action name that'll be logged by Redux Dev Tools
+ * @param {any} payload the payload being passed to the reducer in Redux Dev Tools
+ * @param {any} newState the resulting new state from the reducer that's logged in Redux Dev Tools
+ */
+function sendToReduxDevtools(name: string, payload: any, newState: any) {
   (<any>window).__REDUX_DEVTOOLS_EXTENSION__ &&
     (<any>window).__REDUX_DEVTOOLS_EXTENSION__.send(
       {
@@ -13,6 +18,12 @@ function sendToReduxDevtools(
     );
 }
 
+/**
+ * Initializes singleton of Redux Dev Tools with initial state
+ * 
+ * @param {any} state 
+ * @returns {*} Redux dev tools reference
+ */
 function initReduxDevtools(state: any) {
   const devTools = (<any>window).__REDUX_DEVTOOLS_EXTENSION__
     ? (<any>window).__REDUX_DEVTOOLS_EXTENSION__.connect()
@@ -21,33 +32,49 @@ function initReduxDevtools(state: any) {
   return devTools;
 }
 
-export const withReduxDevtools = app => (state, actions, view, root) => {
+/**
+ * function that wraps the app in a redux dev tools.
+ * 
+ * @param {any} app 
+ * @returns {any} returns all wired actions
+ */
+export const withReduxDevtools = <State>(app: any) => (
+  state: State,
+  actions: any,
+  view: View<State, any>,
+  root: HTMLElement
+) => {
   const wiredActions = app(
     state,
     {
       ...actions,
-      reduxDevToolsGetState: _ => state => state,
+      reduxDevToolsGetState: () => (state: State) => state,
     },
     view,
     root
   );
 
-  function wrapActions(actions, prefix: string | null = null) {
+  /**
+   * Wraps all wired actions with the redux logger
+   * 
+   * @param {any} actions 
+   * @param {(string | null)} [prefix=null] 
+   */
+  function wrapActions(actions: any, prefix: string | null = null) {
     var namespace = prefix ? prefix + '.' : '';
 
     Object.keys(actions || {}).forEach(actionName => {
-      // ignore nesting for brevity
       let originalAction = actions[actionName];
 
       if (typeof originalAction !== 'function') {
-        wrapActions(actions[actionName], namespace + actionName);
+        wrapActions(originalAction, namespace + actionName);
       } else {
-        actions[actionName] = data => {
+        actions[actionName] = (data: any) => {
           var result = originalAction(data);
           if (actionName !== 'reduxDevToolsGetState') {
             sendToReduxDevtools(
               namespace + actionName,
-              data,
+              data || {},
               wiredActions.reduxDevToolsGetState()
             );
           }
