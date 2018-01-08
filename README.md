@@ -32,7 +32,7 @@ import { withReduxDevtools } from "@frontmen/hyperapp-redux-devtools"
 
 ### Browser
 
-Download the minified library from the [CDN](https://unpkg.com/Frontmen/hyperapp-redux-devtools).
+Download the minified library from the [CDN](https://unpkg.com/@frontmen/hyperapp-redux-devtools).
 
 ```html
 <script src="https://unpkg.com/Frontmen/hyperapp-redux-devtools"></script>
@@ -43,11 +43,11 @@ You can find the library in `window.withReduxDevtools`.
 ## Usage
 
 ```js
-import withReduxDevtools from 'hyperapp-redux-devtools';
+import withReduxDevtools from '@frontmen/hyperapp-redux-devtools';
 
 withReduxDevtools(app)(state, actions, view, document.body)
 ```
 
-## License
+<!-- ## License
 
-@frontmen/hyperapp-redux-devtools is MIT licensed. See [LICENSE](LICENSE.md).
+@frontmen/hyperapp-redux-devtools is MIT licensed. See [LICENSE](LICENSE.md). -->
