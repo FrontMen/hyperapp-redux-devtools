@@ -16,3 +16,4 @@ coverage
 
 # Dist
 *.gz
+index.js

@@ -10,20 +10,18 @@
     "url": "git+https://github.com/frontmen/hyperapp-redux-logger.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run bundle",
+    "bundle": "rollup -i index.js -o dist/index.js -m -f umd -n hyperapp-redux-devtools",
     "test": "jest --coverage --no-cache"
   },
-  "keywords": [
-    "hyperapp",
-    "redux",
-    "devtools"
-  ],
+  "keywords": ["hyperapp", "redux", "devtools"],
   "author": "Lasse Capel <lasse@frontmen.nl>",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^22.0.0",
     "babel-preset-env": "^1.6.1",
     "jest": "^21.2.1",
+    "rollup": "^0.53.3",
     "ts-jest": "^21.2.4",
     "typescript": "^2.6.2"
   },
@@ -42,13 +40,6 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   }
 }
